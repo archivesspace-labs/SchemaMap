@@ -1,0 +1,14 @@
+SubSchema:	linked_agents
+
+string (max length: 255)	role    false
+array (JSONModel(:term) uri_or_object)	terms   false
+string (max length: 255)	relator false
+
+END
+
+SubSchema:	note_chronology_items
+
+string (max length: 255)	event_date  false
+array (string)	    events  false
+
+END

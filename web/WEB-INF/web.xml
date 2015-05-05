@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+    <servlet>
+        <servlet-name>SchemaDataService</servlet-name>
+        <servlet-class>org.nyu.edu.dlts.server.SchemaDataServiceImpl</servlet-class>
+        <init-param>
+            <param-name>database.hosts</param-name>
+            <param-value>localhost</param-value>
+        </init-param>
+        <init-param>
+            <param-name>database.port</param-name>
+            <param-value>3306</param-value>
+        </init-param>
+        <init-param>
+            <param-name>database.username</param-name>
+            <param-value>nathan</param-value>
+        </init-param>
+        <init-param>
+            <description>change when pushing to vcs</description>
+            <param-name>database.password</param-name>
+            <param-value>password</param-value>
+        </init-param>
+        <init-param>
+            <param-name>database.name</param-name>
+            <param-value>SchemaMap</param-value>
+        </init-param>
+        <init-param>
+            <description>Used to force the schema data list to be upgraded</description>
+            <param-name>schemaListAT.upgrade</param-name>
+            <param-value>no</param-value>
+        </init-param>
+    </servlet>
+    <servlet>
+        <servlet-name>RecordTestServlet</servlet-name>
+        <servlet-class>org.nyu.edu.dlts.server.RecordTestServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>MappingDocumentPosterServlet</servlet-name>
+        <servlet-class>org.nyu.edu.dlts.server.MappingDocumentPosterServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SchemaDataService</servlet-name>
+        <url-pattern>/org.nyu.edu.dlts.Main/schemadataservice</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RecordTestServlet</servlet-name>
+        <url-pattern>/RecordTestServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MappingDocumentPosterServlet</servlet-name>
+        <url-pattern>/MappingDocumentPosterServlet</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    <welcome-file-list>
+        <welcome-file>welcomeGWT.html</welcome-file>
+    </welcome-file-list>
+</web-app>
