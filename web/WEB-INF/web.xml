@@ -38,6 +38,10 @@
         <servlet-name>MappingDocumentPosterServlet</servlet-name>
         <servlet-class>org.nyu.edu.dlts.server.MappingDocumentPosterServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SchematronServlet</servlet-name>
+        <servlet-class>org.nyu.edu.dlts.server.SchematronServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SchemaDataService</servlet-name>
         <url-pattern>/org.nyu.edu.dlts.Main/schemadataservice</url-pattern>
@@ -49,6 +53,10 @@
     <servlet-mapping>
         <servlet-name>MappingDocumentPosterServlet</servlet-name>
         <url-pattern>/MappingDocumentPosterServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SchematronServlet</servlet-name>
+        <url-pattern>/SchematronServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

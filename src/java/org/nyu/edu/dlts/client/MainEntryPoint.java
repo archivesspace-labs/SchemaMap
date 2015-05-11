@@ -39,6 +39,7 @@ import org.nyu.edu.dlts.client.model.SchemaData;
 import org.nyu.edu.dlts.client.model.SchemaDataProperties;
 import org.nyu.edu.dlts.client.widgets.LoginDialog;
 import org.nyu.edu.dlts.client.widgets.SchemaDataInfoPanel;
+import org.nyu.edu.dlts.client.widgets.SchematronWindow;
 
 /**
  * Main entry point.
@@ -88,7 +89,6 @@ public class MainEntryPoint implements IsWidget, EntryPoint {
 
         ContentPanel north = new ContentPanel();
         north.setHeaderVisible(false);
-        //north.setHeadingText("Archive Space -- Archivists Toolkit Data Field Mapper v0.1");
 
         ContentPanel west = new ContentPanel();
 
@@ -142,7 +142,7 @@ public class MainEntryPoint implements IsWidget, EntryPoint {
 
         BoxLayoutData flex = new BoxLayoutData(new Margins(0, 5, 0, 0));
         flex.setFlex(1);
-        HTML html = new HTML("<b>Archives Space Schema Mapper</b> v2.0.1 (04/29/2015)");
+        HTML html = new HTML("<b>Archives Space Schema Mapper</b> v2.0.1 (05/11/2015)");
         container.add(html, flex);
         
         // add the html that hold the login information
@@ -159,7 +159,18 @@ public class MainEntryPoint implements IsWidget, EntryPoint {
         
         container.add(viewButton, new BoxLayoutData(new Margins(0, 5, 0, 0)));
         
-        // the login buton
+        // the button to perform a schematron validation
+        TextButton schematronButton = new TextButton("Schematron");
+        schematronButton.addSelectHandler(new SelectHandler() {
+            public void onSelect(SelectEvent event) {
+                SchematronWindow schematronWindow = new SchematronWindow();
+                schematronWindow.show();
+            }
+        });
+        
+        container.add(schematronButton, new BoxLayoutData(new Margins(0, 5, 0, 0)));
+        
+        // the login button
         loginButton = new TextButton("Login");
         loginButton.addSelectHandler(new SelectHandler() {
             public void onSelect(SelectEvent event) {

@@ -142,7 +142,7 @@ public class ATSchemaUtil {
                 }
                 
                 if (!propertyName.equals("auditInfo")) {
-                    String propertyInfo = propertyName + ", " + propertyType.toUpperCase() + " " + propertyLength;
+                    String propertyInfo = propertyName + "\t" + propertyType.toUpperCase() + " " + propertyLength;
                     fieldsList.add(propertyInfo);
                     System.out.println("Property Info: " + propertyInfo);
                 }
@@ -169,7 +169,7 @@ public class ATSchemaUtil {
                     setName = removePackageName(subclassName)  + "::" + setName;
                 }
 
-                String setInfo = upperCaseFieldName(setName) + ", " + type;
+                String setInfo = upperCaseFieldName(setName) + "\t" + type;
                 fieldsList.add(setInfo);
                 System.out.println("Set Info: " + setInfo);
             }
@@ -194,7 +194,7 @@ public class ATSchemaUtil {
                     mtoName = removePackageName(subclassName)  + "::" + mtoName;
                 }
 
-                String mtoInfo = upperCaseFieldName(mtoName) + ", " + type;
+                String mtoInfo = upperCaseFieldName(mtoName) + "\t" + type;
                 fieldsList.add(mtoInfo);
                 System.out.println("Many To One Info: " + mtoInfo);
             }
@@ -476,7 +476,7 @@ public class ATSchemaUtil {
 
                 for (String info : fieldInfo) {
                     System.out.println("Info String >> " + schemaName + " :: " + info);
-                    String[] sa = info.split("\\s*,\\s*");
+                    String[] sa = info.split("\\s*\t\\s*");
                     
                     if(sa.length == 2) { 
                         String name = sa[0];

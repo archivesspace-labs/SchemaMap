@@ -8,6 +8,7 @@ package org.nyu.edu.dlts.server;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -73,13 +74,13 @@ public class EADSchemaUtil {
                 List<XmlSchemaAttributeOrGroupRef> attributesList = schemaType.getAttributes();
                 
                 String fieldName = schemaType.getName();
-                eadFields.add(fieldName + ", ELEMENT");
+                eadFields.add(fieldName + "\tELEMENT");
                 
                 if(attributesList != null) {
                     for(XmlSchemaAttributeOrGroupRef attributeOrGroup: attributesList) {
                         if(attributeOrGroup instanceof XmlSchemaAttribute) {
                             XmlSchemaAttribute attribute = (XmlSchemaAttribute)attributeOrGroup;
-                            eadFields.add(fieldName + "=>" + attribute.getName() + ", ATTRIBUTE");
+                            eadFields.add(fieldName + "=>" + attribute.getName() + "\tATTRIBUTE");
                         }
                     }
                 }
