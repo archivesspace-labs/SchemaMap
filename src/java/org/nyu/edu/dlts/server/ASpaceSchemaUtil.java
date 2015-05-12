@@ -238,7 +238,7 @@ public class ASpaceSchemaUtil {
                 String propertyName = key.toString();
 
                 // skip any properties which we don't want
-                if (propertyName.equals("tree")) {
+                if (propertyName.equals("tree") || propertyName.equals("_resolved")) {
                     continue;
                 }
 
@@ -252,9 +252,9 @@ public class ASpaceSchemaUtil {
                 if (propertyType.equals("string")) {
                     if (propertyJS.has("maxLength")) {
                         propertyInfo = " (max length: " + propertyJS.get("maxLength") + ")";
+                    } else if(propertyJS.has("dynamic_enum")) {
+                        propertyInfo = " (enum: " + propertyJS.get("dynamic_enum") + ")";
                     }
-
-                    
                 } else if (propertyType.equals("array")) {
                     propertyInfo = getArrayInfo(propertyJS.getJSONObject("items"));
                 }
